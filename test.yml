@@ -3,7 +3,7 @@ on: push
    3 jobs:
    4   test:
    5     runs-on: ubuntu-22.04
-   6     container: ryuichiueda/ubuntu22.04-ros2:latest #前ページのコンテナを使うという宣言
+   6     container: Zhengyunyuan/ubuntu22.04-ros2:latest #前ページのコンテナを使うという宣言
    7     steps:
    8       - uses: actions/checkout@v2    #コンテナのカレントディレクトリにリポジトリを配置
    9       - name: build and test
