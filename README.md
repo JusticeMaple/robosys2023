@@ -30,8 +30,9 @@ Negative Numbers: []
 ```
 ## 使い方（NLM01）
   * DATA.txtとOUTPUT.txtをダウンロード
-  * NLM01.pyをダウンロード
-  * python3(自身のPythonのVerに合わせて変化）　NLM01.py
+  * NLM01をダウンロード
+  * python3(自身のPythonのVerに合わせて変化）　NLM01
+
 ## 必要なソフトウェア
 
 * Python
