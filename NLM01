@@ -1,0 +1,70 @@
+import random
+import string
+from collections import Counter
+
+# アルファベット以外の文字と空白を除外する関数
+def clean_text(text):
+    cleaned_text = ""
+    for char in text:
+        if char.isalpha():
+            cleaned_text += char
+    return cleaned_text
+
+# アルファベットの出現頻度を調査（大文字と小文字を区別せず）
+def count_alphabet_frequency(text):
+    text = text.lower()  # 全ての文字を小文字に変換
+    alphabet_frequency = Counter(text)
+    return alphabet_frequency
+
+# バイグラムとトリグラムの出現頻度を調査
+def count_ngram_frequency(text, n):
+    ngrams = [text[i:i + n] for i in range(len(text) - n + 1)]
+    ngram_frequency = Counter(ngrams)
+    return ngram_frequency
+
+# テキストファイルを開いて読み込む
+with open('DATA.txt', 'r') as file:
+    original_text = file.read()
+
+# テキストをクリーンアップ
+cleaned_text = clean_text(original_text)
+
+# アルファベットの出現頻度を調査（大文字と小文字を区別せず）
+alphabet_frequency = count_alphabet_frequency(cleaned_text)
+
+# アルファベットの出現頻度を降順にソート
+sorted_alphabet_frequency = dict(sorted(alphabet_frequency.items(), key=lambda item: item[1], reverse=True))
+
+# 降順にソートされたアルファベットの出現頻度を表示
+for letter, count in sorted_alphabet_frequency.items():
+    print(f"Character: {letter}, Count: {count}")
+
+# バイグラムの出現頻度を調査
+bigram_frequency = count_ngram_frequency(cleaned_text, 2)
+
+# 降順にソートされたバイグラムの出現頻度を表示
+top_bigrams = bigram_frequency.most_common(20)
+print("\nTop 20 Bigrams:")
+for bigram, count in top_bigrams:
+    print(f"Character: {bigram}, Count: {count}")
+
+# トリグラムの出現頻度を調査
+trigram_frequency = count_ngram_frequency(cleaned_text, 3)
+
+# 降順にソートされたトリグラムの出現頻度を表示
+top_trigrams = trigram_frequency.most_common(20)
+print("\nTop 20 Trigrams:")
+for trigram, count in top_trigrams:
+    print(f"Character: {trigram}, Count: {count}")
+
+# テキストファイルを開いて読み込む
+with open('DATA.txt', 'r') as file:
+    original_text = file.read()
+
+# テキストをクリーンアップ
+cleaned_text = clean_text(original_text)
+
+# テキストをファイルに保存または標準出力
+with open('OUTPUT.txt', 'w') as file:
+    file.write(cleaned_text)
+
