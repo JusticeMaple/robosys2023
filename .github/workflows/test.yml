@@ -1,4 +1,13 @@
-# test_script.sh
+#!/bin/bash
+# SPDX-FileCopyrightText: 2022 Ryuichi Ueda
+# SPDX-License-Identifier: BSD-3-Clause
+　
+ng () {
+      echo NG at Line $1
+      res=1
+}
+　
+res=0
 
 # 正常な入力
 out=$(echo -e "5.0\n10.0\n15.0\n" | seq 5 | ./plus)
@@ -18,3 +27,5 @@ out=$(echo -e "abc\n123\n" | seq 5 | ./plus)
 # 不正な入力（空白のみ）
 out=$(echo -e "  \n  \n" | seq 5 | ./plus)
 
+[ "$res" = 0 ] && echo OK        # &&（AND記号）は左側が成功すると右側を実行
+exit $res
