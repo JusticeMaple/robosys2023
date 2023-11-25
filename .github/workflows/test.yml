@@ -1,38 +1,33 @@
 #!/bin/bash
-import unittest
-from unittest.mock import patch
-from io import StringIO
-import sys
-import plus  # あなたのプログラムのファイル名に置き換える
 
-class TestStatisticsProgram(unittest.TestCase):
-    def setUp(self):
-        self.held_output = sys.stdout  # 標準出力を一時的に保存
+# テスト用のデータを含むファイルを作成
+echo -e "5\n10\n15\n" > test_input.txt
 
-    def tearDown(self):
-        sys.stdout = self.held_output  # テスト後に標準出力を元に戻す
+# テストスクリプトの実行
+seq 5 | ./plus < test_input.txt > test_output.txt
 
-    def test_program_with_input(self):
-        # テスト用の標準入力
-        input_values = "5\n10\n-3\n8\nend\n"
-        with patch("builtins.input", side_effect=input_values.split()):
-            # 標準出力をキャプチャして確認
-            with patch("sys.stdout", new_callable=StringIO) as mock_stdout:
-                statistics_program.main()  # プログラムのエントリーポイントに置き換える
+# 期待される出力と実際の出力を比較
+expected_output=$(cat << EOF
+Total: 30.0
+Average: 10.0
+Maximum: 15.0
+Minimum: 5.0
+Variance: 16.666666666666668
+Even Numbers: [10.0]
+Odd Numbers: [5.0, 15.0]
+Positive Numbers: [5.0, 10.0, 15.0]
+Negative Numbers: []
+EOF
+)
 
-                # 期待される出力
-                expected_output = """Total: 20.0
-Average: 5.0
-Maximum: 10.0
-Minimum: -3.0
-Variance: 20.5
-Even Numbers: [10.0, 8.0]
-Odd Numbers: [-3.0, 5.0]
-Positive Numbers: [10.0, 8.0, 5.0]
-Negative Numbers: [-3.0]
-"""
-                self.assertEqual(mock_stdout.getvalue(), expected_output)
+actual_output=$(cat test_output.txt)
 
-if __name__ == "__main__":
-    unittest.main()
+if [ "$expected_output" == "$actual_output" ]; then
+    echo "Test Passed"
+else
+    echo "Test Failed"
+fi
+
+# 一時ファイルのクリーンアップ
+rm test_input.txt test_output.txt
 
