@@ -1,20 +1,38 @@
-# .github/workflows/test.yml
-name: Test
-on: [push, pull_request]
-jobs:
-  test:
-    runs-on: ubuntu-latest
+#!/bin/bash
+import unittest
+from unittest.mock import patch
+from io import StringIO
+import sys
+import plus  # あなたのプログラムのファイル名に置き換える
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+class TestStatisticsProgram(unittest.TestCase):
+    def setUp(self):
+        self.held_output = sys.stdout  # 標準出力を一時的に保存
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.8
-          # 必要なライブラリがあれば指定
+    def tearDown(self):
+        sys.stdout = self.held_output  # テスト後に標準出力を元に戻す
 
-    - name: Run tests
-      run: python test.yml  # テストスクリプトのファイル名を適切なものに変更
+    def test_program_with_input(self):
+        # テスト用の標準入力
+        input_values = "5\n10\n-3\n8\nend\n"
+        with patch("builtins.input", side_effect=input_values.split()):
+            # 標準出力をキャプチャして確認
+            with patch("sys.stdout", new_callable=StringIO) as mock_stdout:
+                statistics_program.main()  # プログラムのエントリーポイントに置き換える
+
+                # 期待される出力
+                expected_output = """Total: 20.0
+Average: 5.0
+Maximum: 10.0
+Minimum: -3.0
+Variance: 20.5
+Even Numbers: [10.0, 8.0]
+Odd Numbers: [-3.0, 5.0]
+Positive Numbers: [10.0, 8.0, 5.0]
+Negative Numbers: [-3.0]
+"""
+                self.assertEqual(mock_stdout.getvalue(), expected_output)
+
+if __name__ == "__main__":
+    unittest.main()
 
