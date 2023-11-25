@@ -33,7 +33,7 @@ Negative Numbers: []
   * NLM01をダウンロード
   * python3(自身のPythonのVerに合わせて変化）　NLM01
 ```bash
-$ python3 NLM01.MK4.py
+$ python3 NLM01
 
 Character: e, Count: 2428
 Character: o, Count: 1960
