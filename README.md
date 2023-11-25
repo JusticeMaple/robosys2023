@@ -34,6 +34,7 @@ Negative Numbers: []
   * python3(自身のPythonのVerに合わせて変化）　NLM01
 ```bash
 $ python3 NLM01.MK4.py
+
 Character: e, Count: 2428
 Character: o, Count: 1960
 Character: t, Count: 1778
