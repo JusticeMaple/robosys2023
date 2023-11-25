@@ -32,6 +32,26 @@ Negative Numbers: []
   * DATA.txtとOUTPUT.txtをダウンロード
   * NLM01をダウンロード
   * python3(自身のPythonのVerに合わせて変化）　NLM01
+```bash
+$ python3 NLM01.MK4.py
+Character: e, Count: 2428
+Character: o, Count: 1960
+Character: t, Count: 1778
+...
+
+Top 20 Bigrams:
+Character: ou, Count: 494
+Character: th, Count: 394
+Character: in, Count: 385
+...
+
+Top 20 Trigrams:
+Character: you, Count: 302
+Character: the, Count: 215
+Character: our, Count: 124
+...
+
+```
 
 ## 必要なソフトウェア
 
