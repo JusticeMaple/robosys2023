@@ -1,13 +1,11 @@
-#!/bin/bash
+#!/usr/bin/python3
+import sys
 
-ng () {
-	echo ${1}行目が違うよ   #$1はngの1番目の引数
-	ret=1                   #最後に返す終了ステータスをセット
-}
+ans = 0   #もともと0.0だったのを0に変更
+for line in sys.stdin:
+	try:
+		ans += int(line)   #intは文字列を整数に（失敗すると例外発生）
+	except:
+		ans += float(line)
+print(ans)
 
-ret=0
-a=山田
-[ "$a" = 上田 ] || ng "$LINENO"  # LINENOは，この行の行番号の入る変数
-[ "$a" = 山田 ] || ng "$LINENO"  # ngに第一引数として$LINENOを付与
-
-exit $ret     # このシェルスクリプトの終了ステータスを返して終了
