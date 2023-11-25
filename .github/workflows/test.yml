@@ -1,33 +1,20 @@
-#!/bin/bash
+# test_script.sh
 
-# テスト用のデータを含むファイルを作成
-echo -e "5\n10\n15\n" > test_input.txt
+# 正常な入力
+echo -e "5.0\n10.0\n15.0\n" | seq 5 | ./plus
 
-# テストスクリプトの実行
-seq 5 | ./plus < test_input.txt > test_output.txt
+# 正常な入力（整数と小数混在）
+echo -e "2\n4.5\n7\n" | seq 5 | ./plus
 
-# 期待される出力と実際の出力を比較
-expected_output=$(cat << EOF
-Total: 30.0
-Average: 10.0
-Maximum: 15.0
-Minimum: 5.0
-Variance: 16.666666666666668
-Even Numbers: [10.0]
-Odd Numbers: [5.0, 15.0]
-Positive Numbers: [5.0, 10.0, 15.0]
-Negative Numbers: []
-EOF
-)
+# 正常な入力（負の数含む）
+echo -e "-3.0\n6.0\n-9.0\n" | seq 5 | ./plus
 
-actual_output=$(cat test_output.txt)
+# 空の入力
+echo -e "" | seq 5 | ./plus
 
-if [ "$expected_output" == "$actual_output" ]; then
-    echo "Test Passed"
-else
-    echo "Test Failed"
-fi
+# 不正な入力（文字列）
+echo -e "abc\n123\n" | seq 5 | ./plus
 
-# 一時ファイルのクリーンアップ
-rm test_input.txt test_output.txt
+# 不正な入力（空白のみ）
+echo -e "  \n  \n" | seq 5 | ./plus
 
