@@ -1,20 +1,20 @@
 # test_script.sh
 
 # 正常な入力
-echo -e "5.0\n10.0\n15.0\n" | seq 5 | ./plus
+out=$(echo -e "5.0\n10.0\n15.0\n" | seq 5 | ./plus)
 
 # 正常な入力（整数と小数混在）
-echo -e "2\n4.5\n7\n" | seq 5 | ./plus
+out=$(echo -e "2\n4.5\n7\n" | seq 5 | ./plus)
 
 # 正常な入力（負の数含む）
-echo -e "-3.0\n6.0\n-9.0\n" | seq 5 | ./plus
+out=$(echo -e "-3.0\n6.0\n-9.0\n" | seq 5 | ./plus)
 
 # 空の入力
-echo -e "" | seq 5 | ./plus
+out=$(echo -e "" | seq 5 | ./plus)
 
 # 不正な入力（文字列）
-echo -e "abc\n123\n" | seq 5 | ./plus
+out=$(echo -e "abc\n123\n" | seq 5 | ./plus)
 
 # 不正な入力（空白のみ）
-echo -e "  \n  \n" | seq 5 | ./plus
+out=$(echo -e "  \n  \n" | seq 5 | ./plus)
 
