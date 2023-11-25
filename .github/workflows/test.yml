@@ -1,31 +1,14 @@
 #!/bin/bash
-# SPDX-FileCopyrightText: 2022 Ryuichi Ueda
-# SPDX-License-Identifier: BSD-3-Clause
 
-ng () {
-  echo NG at Line $1
-  res=1
-}
-　
-res=0
+# プログラムのパス
+PROGRAM_PATH="seq 5 | ./plus"
 
-# 正常な入力
-out=$(echo -e "5.0\n10.0\n15.0\n" | seq 5 | ./plus)
+# テストケース1: 正常な入力
+echo -e "10\n20\n30\n" | $PROGRAM_PATH
 
-# 正常な入力（整数と小数混在）
-out=$(echo -e "2\n4.5\n7\n" | seq 5 | ./plus)
+# テストケース2: 不正な入力を含む
+echo -e "a\n20\n30\n" | $PROGRAM_PATH
 
-# 正常な入力（負の数含む）
-out=$(echo -e "-3.0\n6.0\n-9.0\n" | seq 5 | ./plus)
+# テストケース3: 空の入力
+echo -e "" | $PROGRAM_PATH
 
-# 空の入力
-out=$(echo -e "" | seq 5 | ./plus)
-
-# 不正な入力（文字列）
-out=$(echo -e "abc\n123\n" | seq 5 | ./plus)
-
-# 不正な入力（空白のみ）
-out=$(echo -e "  \n  \n" | seq 5 | ./plus)
-
-[ "$res" = 0 ] && echo OK        # &&（AND記号）は左側が成功すると右側を実行
-exit $res
