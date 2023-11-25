@@ -1,14 +1,22 @@
 #!/bin/bash
 
-# プログラムのパス
-PROGRAM_PATH="./plus"
+ng () {
+	echo NG at Line ${1}
+	ret=1
+}
 
-# テストケース1: 正常な入力
-echo -e "10\n20\n30\n" | $PROGRAM_PATH
+ret=0
+out=$(seq 5 | ./plus)
+[ "${out}" = 15 ] || ng "${LINENO}"
 
-# テストケース2: 不正な入力を含む
-echo -e "a\n20\n30\n" | $PROGRAM_PATH
+### 変なinput ###
+out=$(echo あ | ./plus)
+[ "$?" = 1 ] || ng "${LINENO}"
+[ "${out}" = "" ] || ng "${LINENO}"
 
-# テストケース3: 空の入力
-echo -e "" | $PROGRAM_PATH
+out=$(echo | ./plus)
+[ "$?" = 1 ] || ng "${LINENO}"
+[ "${out}" = "" ] || ng "${LINENO}"
 
+[ "$ret" = 0 ] && echo OK
+exit $ret
