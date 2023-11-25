@@ -19,5 +19,5 @@ jobs:
           # 必要なライブラリがあれば指定
 
     - name: Run tests
-      run: python test_script.py  # テストスクリプトのファイル名を適切なものに変更
+      run: python test.yml  # テストスクリプトのファイル名を適切なものに変更
 
