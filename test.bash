@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# SPDX-FileCopyrightText: 2023 Yunyuan Zheng justice_zwy@yahoo.co.jp
+# SPDX-License-Identifier: BSD-3-Clause
 ng () {
 	echo NG at Line ${1}
 	ret=1
