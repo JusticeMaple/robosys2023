@@ -13,7 +13,7 @@
 
 plus ファイルをダウンロード
 
-## 使い方
+## 使い方(plus)
 
 ```bash
 $ seq 5 | ./plus
@@ -28,7 +28,10 @@ Odd Numbers: [1.0, 3.0, 5.0]
 Positive Numbers: [1.0, 2.0, 3.0, 4.0, 5.0]
 Negative Numbers: []
 ```
-
+## 使い方（NLM01）
+ 1 * DATA.txtとOUTPUT.txtをダウンロード
+ 2 * NLM01.pyをダウンロード
+ 3 * python3(自身のPythonのVerに合わせて変化）　NLM01.py
 ## 必要なソフトウェア
 
 * Python
