@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # プログラムのパス
-PROGRAM_PATH="seq 5 | ./plus"
+PROGRAM_PATH="./plus"
 
 # テストケース1: 正常な入力
 echo -e "10\n20\n30\n" | $PROGRAM_PATH
