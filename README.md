@@ -11,8 +11,12 @@
    
 ## インストール方法
 
-* ご自身の環境でgit@github.com:JusticeMaple/robosys2023.gitと入力。
-* cd robosys2023（ファイルに移動）
+* ご自身の環境で以下を入力
+```bash
+
+git@github.com:JusticeMaple/robosys2023.git
+cd robosys2023（ファイルに移動）
+```
 
 ## 使い方(plus)
 
