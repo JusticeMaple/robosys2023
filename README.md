@@ -11,10 +11,13 @@
    
 ## インストール方法
 
-plus ファイルをダウンロード
+* ご自身の環境でgit@github.com:JusticeMaple/robosys2023.gitと入力。
+* cd robosys2023（ファイルに移動）
 
 ## 使い方(plus)
 
+* seq 5 | ./plus（入力が１～５の場合）
+* 
 ```bash
 $ seq 5 | ./plus
 
