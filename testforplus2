@@ -1,0 +1,53 @@
+#!/bin/bash
+# SPDX-FileCopyrightText: 2023 Yunyuan Zheng justice_zwy@yahoo.co.jp
+# SPDX-License-Identifier: BSD-3-Clause
+
+# プログラムのパス
+PROGRAM_PATH="./plus2"
+
+# テストデータ生成の開始と終了の値
+START=1
+END=5
+
+# 期待される出力
+EXPECTED_OUTPUT="15.0
+3.0
+5.0
+1.0
+2.0
+[2.0, 4.0]
+[1.0, 3.0, 5.0]
+[1.0, 2.0, 3.0, 4.0, 5.0]
+[]"
+
+# seq コマンドを使用して数値を生成し、それをプログラムの標準入力として提供して、出力を確認
+ACTUAL_OUTPUT=$(seq $START $END | $PROGRAM_PATH)
+DIFF=$(diff -y --suppress-common-lines <(echo "$EXPECTED_OUTPUT") <(echo "$ACTUAL_OUTPUT"))
+if [[ "$DIFF" == "" ]]; then
+    echo "Test Passed: Output matches the expected output."
+else
+    echo "Test Failed: Output does not match the expected output."
+    echo "========== Difference =========="
+    echo "$DIFF"
+fi
+
+ng () {
+    echo "NG at Line ${1}"
+    ret=1
+}
+
+ret=0
+out=$(seq 5 | ./plus2)
+[ "${out}" = "15.0
+3.0
+5.0
+1.0
+2.0
+[2.0, 4.0]
+[1.0, 3.0, 5.0]
+[1.0, 2.0, 3.0, 4.0, 5.0]
+[]" ] || ng "${LINENO}"
+
+[ "$ret" = 0 ] && echo "OK"
+exit $ret
+

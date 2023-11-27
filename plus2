@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # SPDX-FileCopyrightText: 2023 Yunyuan Zheng justice_zwy@yahoo.co.jp
 # SPDX-License-Identifier: BSD-3-Clause
+
 import sys
 
 numbers = []
@@ -19,22 +20,24 @@ if numbers:
     minimum = min(numbers)
     variance = sum((x - average) ** 2 for x in numbers) / len(numbers)
 
-    print(f"Total: {total}")
-    print(f"Average: {average}")
-    print(f"Maximum: {maximum}")
-    print(f"Minimum: {minimum}")
-    print(f"Variance: {variance}")
+    # 統計情報を出力
+    print(total)
+    print(average)
+    print(maximum)
+    print(minimum)
+    print(variance)
 
-    # 分類
+    # 数値の分類
     even_numbers = [x for x in numbers if x % 2 == 0]
     odd_numbers = [x for x in numbers if x % 2 != 0]
     positive_numbers = [x for x in numbers if x > 0]
     negative_numbers = [x for x in numbers if x < 0]
 
-    print(f"Even Numbers: {even_numbers}")
-    print(f"Odd Numbers: {odd_numbers}")
-    print(f"Positive Numbers: {positive_numbers}")
-    print(f"Negative Numbers: {negative_numbers}")
+    # 分類結果を出力
+    print(even_numbers)
+    print(odd_numbers)
+    print(positive_numbers)
+    print(negative_numbers)
 else:
     print("No valid numbers were provided.")
 
