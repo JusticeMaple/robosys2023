@@ -18,24 +18,25 @@ git@github.com:JusticeMaple/robosys2023.git
 cd robosys2023（ファイルに移動）
 ```
 
-## 使い方(plus)
-
-* seq 5 | ./plus（入力が１～５の場合）
+## 使い方(plus2、plusの場合はplus2の部分をplusに変更)
+```bash
+* seq 5 | ./plus2（入力が１～５の場合）
 
 以下が通常時の出力です
 
 ```bash
-$ seq 5 | ./plus
-
-Total: 15.0
-Average: 3.0
-Maximum: 5.0
-Minimum: 1.0
-Variance: 2.0
-Even Numbers: [2.0, 4.0]
-Odd Numbers: [1.0, 3.0, 5.0]
-Positive Numbers: [1.0, 2.0, 3.0, 4.0, 5.0]
-Negative Numbers: []
+$chmod +x plus2
+$ seq 5 | ./plus2
+```
+15.0
+3.0
+5.0
+1.0
+2.0
+[2.0, 4.0]
+[1.0, 3.0, 5.0]
+[1.0, 2.0, 3.0, 4.0, 5.0]
+[]
 ```
 ## 使い方（NLM01）
   * DATA.txtとOUTPUT.txtをダウンロード
