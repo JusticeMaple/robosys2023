@@ -70,7 +70,7 @@ Character: our, Count: 124
 
 ## テスト環境
 
-* Ubuntu
+* Ubuntu 22.04.2 LTS
 
 ## 著作権・ライセンス
 
