@@ -27,7 +27,7 @@ cd robosys2023（ファイルに移動）
 ```bash
 $chmod +x plus2
 $ seq 5 | ./plus2
-```
+
 15.0
 3.0
 5.0
