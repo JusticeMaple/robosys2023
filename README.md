@@ -1,6 +1,6 @@
 # robosys2023
 
-[![test](https://github.com/ryuichiueda/robosys2023/actions/workflows/test.yml/badge.svg)](https://github.com/ryuichiueda/robosys2023/actions/workflows/test.yml)
+[![test](https://github.com/JusticeMaple/robosys2023/actions/workflows/test.yml/badge.svg)](https://github.com/JusticeMaple/robosys2023/actions/workflows/test.yml)
 
 標準入力から読み込んだ数字を足す。
 ### Ver1.1 統計情報の表示機能の追加
