@@ -18,7 +18,7 @@ git@github.com:JusticeMaple/robosys2023.git
 cd robosys2023（ファイルに移動）
 ```
 
-## 使い方(plus2、plusの場合はplus2の部分をplusに変更)
+## 使い方(plus2)
 ```bash
 * seq 5 | ./plus2（入力が１～５の場合）
 
