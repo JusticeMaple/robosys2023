@@ -71,4 +71,88 @@ cleaned_text = clean_text(original_text)
 # テキストをファイルに保存または標準出力
 with open('OUTPUT.txt', 'w') as file:
     file.write(cleaned_text)
+#　以下は文字列生成のコードです。
+# アルファベット以外の文字を空白に置換する関数
+def clean_text(text):
+    cleaned_text = ""
+    for char in text:
+        if char.isalpha():
+            cleaned_text += char
+        else:
+            cleaned_text += ' '
+    return cleaned_text
 
+# アルファベットの出現頻度を調査
+def count_alphabet_frequency(text):
+    alphabet_frequency = Counter(text)
+    return alphabet_frequency
+
+# テキストファイルを開いて読み込む
+with open('DATA.txt', 'r') as file:
+    original_text = file.read()
+
+# テキストをクリーンアップ
+cleaned_text = clean_text(original_text)
+
+# アルファベットの出現頻度を調査
+alphabet_frequency = count_alphabet_frequency(cleaned_text)
+
+# 以下、生成文字列の生成と出力の部分は以前のコードを使用できます
+def find_ngrams(text, n):
+    # テキストデータからn-gramを生成 (スペースを除外)
+    text = text.replace(" ", "")
+    ngrams = [text[i:i + n] for i in range(len(text) - n + 1)]
+    return ngrams
+
+def generate_random_word_length():
+    # ランダムに単語の長さを決定 (例: 3文字から10文字までのランダムな長さ)
+    return random.randint(3, 10)
+
+def generate_approximate_text_with_spaces(ngram_counts, n, max_length):
+    text = ""
+    while len(text) < max_length:
+        word_length = generate_random_word_length()
+        # 最も一般的なn-gramをランダムに選択して次の文字を生成
+        common_ngrams = [ngram for ngram, _ in ngram_counts.most_common(20)]
+        next_ngram = random.choice(common_ngrams)
+        text += next_ngram[-1]  # n-gramの最後の文字を追加
+        if len(text) >= max_length:
+            break
+        text += " "  # スペースを追加
+        # 残りの単語の長さを埋める
+        while len(text) < max_length and len(text) + word_length <= max_length:
+            for _ in range(word_length):
+                next_ngram = random.choice(common_ngrams)
+                text += next_ngram[-1]
+            if len(text) < max_length:
+                text += " "  # スペースを追加
+    return text[:max_length]
+
+file_path = 'DATA.txt'  # テキストファイルのパスを指定
+with open(file_path, 'r', encoding='utf-8') as file:
+    text = file.read()
+
+n = 2  # 2文字組（バイグラム）を調査する場合。nを3に変更するとトリグラム（3文字組）を調査します.
+
+ngrams = find_ngrams(text, n)
+
+# n-gramの出現頻度を調査
+ngram_counts = Counter(ngrams)
+git push origin main
+# 生成する文字列の長さの制限を指定
+max_length = 100  # 生成する文字列の最大長
+
+# 第1近似の文字列生成（スペースを含む）
+generated_text_1st = generate_approximate_text_with_spaces(ngram_counts, n, max_length)
+print("\n第1近似の生成文字列:")
+print(generated_text_1st)
+
+# 第2近似の文字列生成（スペースを含む）
+generated_text_2nd = generate_approximate_text_with_spaces(ngram_counts, n, max_length)
+print("\n第2近似の生成文字列:")
+print(generated_text_2nd)
+
+# 第3近似の文字列生成（スペースを含む）
+generated_text_3rd = generate_approximate_text_with_spaces(ngram_counts, n, max_length)
+print("\n第3近似の生成文字列:")
+print(generated_text_3rd)
