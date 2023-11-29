@@ -79,7 +79,7 @@ Character: our, Count: 124
 * Python
     * テスト済み: 3.7〜3.10
 
-## テスト環境
+## テスト環境(plus2のみ)
 
 * Ubuntu 22.04.2 LTS
 
