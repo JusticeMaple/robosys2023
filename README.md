@@ -23,6 +23,7 @@ cd robosys2023（ファイルに移動）
 
 ## 使い方(plus2)
 ```bash
+* $chmod +x plus2
 * seq 5 | ./plus2（入力が１～５の場合）
 
 ```
@@ -49,10 +50,12 @@ $ seq 5 | ./plus2
 
 ## 使い方（nml01）
 ```bash
+  * $chmod +x plus2
   * python3(自身のPythonのVerに合わせて変化）　nml01
 ```
 以下が通常時の出力です。
 ```bash
+$chmod +x plus2
 $ python3 nml01
 
 Character: e, Count: 2428
@@ -79,7 +82,7 @@ Character: our, Count: 124
 * Python
     * テスト済み: 3.7〜3.10
 
-## テスト環境(plus2のみ)
+## テスト環境
 
 * Ubuntu 22.04.2 LTS
 
