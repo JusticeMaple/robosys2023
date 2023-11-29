@@ -55,7 +55,7 @@ $ seq 5 | ./plus2
 ```
 以下が通常時の出力です。
 ```bash
-$chmod +x plus2
+$chmod +x nml01
 $ python3 nml01
 
 Character: e, Count: 2428
