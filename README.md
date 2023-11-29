@@ -2,7 +2,10 @@
 
 [![test](https://github.com/JusticeMaple/robosys2023/actions/workflows/test.yml/badge.svg)](https://github.com/JusticeMaple/robosys2023/actions/workflows/test.yml)
 
-標準入力から読み込んだ数字を足す。
+# plus2
+
+* 標準入力から読み込んだ数字を足す。
+
 ### Ver1.1 統計情報の表示機能の追加
    * plus2に新機能が追加！合計だけでなく、入力された数値の平均、最大値、最小値、分散などの統計情報も表示できるようになりました！
    
