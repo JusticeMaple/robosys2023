@@ -25,7 +25,9 @@ cd robosys2023（ファイルに移動）
 ```bash
 * seq 5 | ./plus2（入力が１～５の場合）
 
-以下が通常時の出力です
+```
+
+以下が通常時の出力です。
 
 ```bash
 $chmod +x plus2
@@ -45,12 +47,13 @@ $ seq 5 | ./plus2
 
 * このプログラムは自然言語処理の確率的生成プログラムです。INPUTしたデータを分析し、それを確率的に文章を生成します。
 
-## 使い方（NLM01）
-  * DATA.txtとOUTPUT.txtをダウンロード
-  * NLM01をダウンロード
-  * python3(自身のPythonのVerに合わせて変化）　NLM01
+## 使い方（nml01）
 ```bash
-$ python3 NLM01
+  * python3(自身のPythonのVerに合わせて変化）　nml01
+```
+以下が通常時の出力です。
+```bash
+$ python3 nml01
 
 Character: e, Count: 2428
 Character: o, Count: 1960
