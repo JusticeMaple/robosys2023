@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 # テスト対象のPythonプログラムを実行
-python3 nml01
+python3 nml01 > /dev/null
 
 # 終了ステータスを確認
 if [ $? -eq 0 ]; then
