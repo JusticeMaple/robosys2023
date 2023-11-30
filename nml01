@@ -138,7 +138,7 @@ ngrams = find_ngrams(text, n)
 
 # n-gramの出現頻度を調査
 ngram_counts = Counter(ngrams)
-git push origin main
+
 # 生成する文字列の長さの制限を指定
 max_length = 100  # 生成する文字列の最大長
 
