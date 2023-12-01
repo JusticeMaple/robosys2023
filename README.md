@@ -17,7 +17,7 @@
 * ご自身の環境で以下を入力
 ```bash
 
-git@github.com:JusticeMaple/robosys2023.git
+git clone git@github.com:JusticeMaple/robosys2023.git
 cd robosys2023（ファイルに移動）
 ```
 
